@@ -15,11 +15,13 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-lg transition-all duration-300;
+    @apply bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-lg 
+           transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20;
   }
 
   .btn-secondary {
-    @apply bg-secondary hover:bg-secondary-hover text-foreground px-4 py-2 rounded-lg transition-all duration-300;
+    @apply bg-secondary hover:bg-secondary-hover text-foreground px-4 py-2 rounded-lg 
+           transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-secondary/20;
   }
 
   .input {
@@ -46,15 +48,43 @@
   }
 }
 
+@keyframes slideRight {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 @keyframes scaleIn {
   from {
-    transform: scale(0.9);
+    transform: scale(0.95);
     opacity: 0;
   }
   to {
     transform: scale(1);
     opacity: 1;
   }
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 0 0 rgba(var(--primary-rgb), 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(var(--primary-rgb), 0); }
+  100% { box-shadow: 0 0 0 0 rgba(var(--primary-rgb), 0); }
 }
 
 /* Custom Animation Classes */
@@ -66,8 +96,20 @@
   animation: slideUp 0.4s ease-out;
 }
 
+.animate-slide-right {
+  animation: slideRight 0.4s ease-out;
+}
+
+.animate-slide-left {
+  animation: slideLeft 0.4s ease-out;
+}
+
 .animate-scale-in {
   animation: scaleIn 0.3s ease-out;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s infinite;
 }
 
 /* Transition Classes */
@@ -90,4 +132,15 @@
 
 .popup-content {
   @apply transform transition-all duration-300 ease-out;
+}
+
+/* Game Grid Animation Delays */
+.game-grid > * {
+  animation: scaleIn 0.5s ease-out backwards;
+}
+
+@for $i from 1 through 20 {
+  .game-grid > *:nth-child(#{$i}) {
+    animation-delay: calc(#{$i} * 50ms);
+  }
 }

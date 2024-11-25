@@ -15,7 +15,10 @@ export function useSettings() {
     const stored = localStorage.getItem('kittengames-settings');
     return stored ? JSON.parse(stored) : DEFAULT_SETTINGS;
   });
-  const [customThemes, setCustomThemes] = useState<Record<string, Theme>>({});
+  const [customThemes, setCustomThemes] = useState<Record<string, Theme>>(() => {
+    const stored = localStorage.getItem('kittengames-custom-themes');
+    return stored ? JSON.parse(stored) : {};
+  });
 
   const loadCustomTheme = async (url: string) => {
     try {
@@ -27,16 +30,26 @@ export function useSettings() {
         throw new Error('Invalid theme format');
       }
 
-      setCustomThemes(prev => ({
-        ...prev,
-        [url]: theme
-      }));
+      setCustomThemes(prev => {
+        const updated = { ...prev, [url]: theme };
+        localStorage.setItem('kittengames-custom-themes', JSON.stringify(updated));
+        return updated;
+      });
 
       return true;
     } catch (error) {
       console.error('Error loading custom theme:', error);
       return false;
     }
+  };
+
+  const removeCustomTheme = (url: string) => {
+    setCustomThemes(prev => {
+      const updated = { ...prev };
+      delete updated[url];
+      localStorage.setItem('kittengames-custom-themes', JSON.stringify(updated));
+      return updated;
+    });
   };
 
   useEffect(() => {
@@ -73,6 +86,7 @@ export function useSettings() {
     settings, 
     updateSettings,
     loadCustomTheme,
+    removeCustomTheme,
     customThemes
   };
 }

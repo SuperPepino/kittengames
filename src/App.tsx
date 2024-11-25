@@ -23,8 +23,9 @@ function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isCloakOpen, setIsCloakOpen] = useState(false);
-  const { settings, updateSettings, loadCustomTheme, customThemes } = useSettings();
+  const { settings, updateSettings, loadCustomTheme, removeCustomTheme, customThemes } = useSettings();
   const { cloakSettings, updateCloak, removeCloak } = useCloaking();
+  const [isExiting, setIsExiting] = useState(false);
 
   useEffect(() => {
     fetch('https://raw.githubusercontent.com/CodingKitten-YT/KittenGames-gamelibrary/main/games.json')
@@ -46,6 +47,14 @@ function App() {
     }
   };
 
+  const handleBack = () => {
+    setIsExiting(true);
+    setTimeout(() => {
+      setSelectedGame(null);
+      setIsExiting(false);
+    }, 300);
+  };
+
   const filteredGames = games.filter(game =>
     game.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -55,13 +64,13 @@ function App() {
       <GameView
         name={selectedGame.name}
         url={selectedGame.url}
-        onBack={() => setSelectedGame(null)}
+        onBack={handleBack}
       />
     );
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className={`min-h-screen bg-background text-foreground ${isExiting ? 'animate-slide-left' : 'animate-slide-right'}`}>
       <header className="sticky top-0 bg-card p-4 shadow-lg z-10">
         <div className="container mx-auto">
           <div className="flex items-center justify-between">
@@ -71,27 +80,33 @@ function App() {
               </div>
               <SearchBar value={searchQuery} onChange={setSearchQuery} />
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-3">
               <button
                 onClick={openRandomGame}
-                className="p-2 hover:bg-card-hover rounded-lg transition-colors"
+                className="p-2 hover:bg-card-hover rounded-lg transition-all duration-300 
+                         hover:scale-110 hover:shadow-lg group"
                 aria-label="Random Game"
               >
-                <Dices className="text-muted hover:text-foreground transition-colors" size={20} />
+                <Dices className="text-muted group-hover:text-primary transition-colors duration-300" 
+                       size={20} />
               </button>
               <button
                 onClick={() => setIsCloakOpen(true)}
-                className="p-2 hover:bg-card-hover rounded-lg transition-colors"
+                className="p-2 hover:bg-card-hover rounded-lg transition-all duration-300 
+                         hover:scale-110 hover:shadow-lg group"
                 aria-label="Cloak Settings"
               >
-                <EyeOff className="text-muted hover:text-foreground transition-colors" size={20} />
+                <EyeOff className="text-muted group-hover:text-primary transition-colors duration-300" 
+                        size={20} />
               </button>
               <button
                 onClick={() => setIsSettingsOpen(true)}
-                className="p-2 hover:bg-card-hover rounded-lg transition-colors"
+                className="p-2 hover:bg-card-hover rounded-lg transition-all duration-300 
+                         hover:scale-110 hover:shadow-lg group"
                 aria-label="Theme Settings"
               >
-                <Palette className="text-muted hover:text-foreground transition-colors" size={20} />
+                <Palette className="text-muted group-hover:text-primary transition-colors duration-300" 
+                         size={20} />
               </button>
             </div>
           </div>
@@ -105,7 +120,8 @@ function App() {
           </div>
         ) : (
           <>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 
+                         gap-4 game-grid">
               {filteredGames.map((game) => (
                 <GameCard
                   key={game.name}
@@ -117,7 +133,7 @@ function App() {
               ))}
             </div>
             {filteredGames.length === 0 && (
-              <div className="text-center text-muted mt-12">
+              <div className="text-center text-muted mt-12 animate-fade-in">
                 <p className="text-lg">No games found matching "{searchQuery}"</p>
               </div>
             )}
@@ -131,6 +147,7 @@ function App() {
         settings={settings}
         onUpdateSettings={updateSettings}
         loadCustomTheme={loadCustomTheme}
+        removeCustomTheme={removeCustomTheme}
         customThemes={customThemes}
       />
 
