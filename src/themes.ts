@@ -68,6 +68,24 @@ export const themes: Record<string, Theme> = {
       border: '#3d2347',
     },
   },
+
+  volcano: {
+    name: 'Volcano',
+    colorScheme: 'dark',
+    colors: {
+      background: '#3B0A45',  // Deep volcanic red with dark purple undertones
+      foreground: '#FFFFFF',  // White text for readability
+      card: '#5C1D6E',        // Charred purple with molten red edges
+      'card-hover': '#7A2767', // Darker red when hovered, resembling cooling lava
+      primary: '#FF5733',     // Lava orange for primary accents
+      'primary-hover': '#FF3C00', // Slightly brighter lava red for hover effect
+      secondary: '#FF6F00',   // Fiery amber, like glowing embers
+      'secondary-hover': '#FF4500', // Darker orange when hovered
+      accent: '#F7A800',      // Molten yellow, reminiscent of lava
+      muted: '#9E3B34',       // Ashy dark gray with a reddish hue
+      border: '#550A2C'       // Dark volcanic ash border color
+    },
+  },
   synthwave: {
     name: 'Synthwave',
     colorScheme: 'dark',
@@ -100,6 +118,23 @@ export const themes: Record<string, Theme> = {
       accent: '#818cf8',
       muted: '#64748b',
       border: '#334155',
+    },
+      },
+  warmOcean: {
+    name: 'Lukewarm Ocean',
+    colorScheme: 'dark',
+    colors: {
+      background: '#002A32',  // Deep ocean blue
+      foreground: '#FFFFFF',  // White text for readability
+      card: '#013A47',        // Dark teal, akin to the ocean depths
+      'card-hover': '#01565C',  // Slightly lighter teal when hovered
+      primary: '#00B0B9',     // Bright turquoise, representing ocean waves
+      'primary-hover': '#008F96',  // Slightly darker turquoise for hover effect
+      secondary: '#006D64',   // Deeper sea green for secondary elements
+      'secondary-hover': '#004F4A', // Darker green for hover effect
+      accent: '#FF6A00',      // Coral orange for accents, like coral reefs
+      muted: '#4B626F',       // Muted, darkened gray-blue for subtle elements
+      border: '#015D69'       // Dark teal border, maintaining the deep ocean feel
     },
   },
   abyss: {
@@ -134,6 +169,57 @@ export const themes: Record<string, Theme> = {
       accent: '#FF0266',
       muted: '#5E5E5E',
       border: '#2A2A2A',
+    },
+      },
+  lightSunset: {
+    name: 'Sunrise',
+    colorScheme: 'light',
+    colors: {
+      background: '#FFF5E1',
+      foreground: '#2D1A5B',
+      card: '#F4D6C1',
+      'card-hover': '#FFD4A3',
+      primary: '#FF7F50',
+      'primary-hover': '#FF6347',
+      secondary: '#FFDDC1',
+      'secondary-hover': '#FFB8A0',
+      accent: '#FF4500',
+      muted: '#F4A261',
+      border: '#E6AC6B',
+    },
+  },
+  pastelDream: {
+    name: 'Pastel Dream',
+    colorScheme: 'light',
+    colors: {
+      background: '#F3E5F5',
+      foreground: '#4A148C',
+      card: '#F8BBD0',
+      'card-hover': '#F48FB1',
+      primary: '#CE93D8',
+      'primary-hover': '#AB47BC',
+      secondary: '#C5E1A5',
+      'secondary-hover': '#AED581',
+      accent: '#FFEB3B',
+      muted: '#E57373',
+      border: '#D32F2F',
+    },
+  },
+  lightOcean: {
+    name: 'Light Ocean',
+    colorScheme: 'light',
+    colors: {
+      background: '#E0F7FA',
+      foreground: '#00796B',
+      card: '#B2EBF2',
+      'card-hover': '#80DEEA',
+      primary: '#00ACC1',
+      'primary-hover': '#0097A7',
+      secondary: '#26C6DA',
+      'secondary-hover': '#00BCD4',
+      accent: '#FF7043',
+      muted: '#B2DFDB',
+      border: '#004D40',
     },
   },
 };
