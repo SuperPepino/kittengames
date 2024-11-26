@@ -222,4 +222,21 @@ export const themes: Record<string, Theme> = {
       border: '#004D40',
     },
   },
+    midday: {
+    name: 'Midday',
+    colorScheme: 'light',
+    colors: {
+      background: '#FFFBF1',  // Soft, warm light yellow to represent the midday sun
+      foreground: '#333333',   // Dark gray for high contrast text
+      card: '#FFFFFF',         // White cards for a clean, bright look
+      'card-hover': '#F0F0F0', // Light gray card hover effect
+      primary: '#FFA500',      // Bright orange for primary accents, representing sunlight
+      'primary-hover': '#FF8C00', // Slightly darker orange when hovered
+      secondary: '#FFD700',    // Golden yellow for secondary accents
+      'secondary-hover': '#FFCC00', // Slightly darker yellow for hover
+      accent: '#FF6347',       // Tomato red for accent color, adding vibrancy
+      muted: '#BDB76B',        // Olive green for muted elements, offering contrast
+      border: '#D3D3D3',       // Light gray for borders to keep it subtle
+    },
+  },
 };
