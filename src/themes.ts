@@ -213,13 +213,13 @@ export const themes: Record<string, Theme> = {
       foreground: '#004D40',     // Darker teal for better text contrast on the light background
       card: '#B2EBF2',           // Light cyan card color
       'card-hover': '#80DEEA',    // Slightly darker cyan for hover effects on cards
-      primary: '#0097A7',        // Deep teal for primary accents
-      'primary-hover': '#00796B', // Darker teal for primary hover effects
+      primary: '#00796B',        // Darker teal for primary accents
+      'primary-hover': '#004D40', // Even darker teal for primary hover effects
       secondary: '#26C6DA',      // Soft turquoise for secondary accents
       'secondary-hover': '#00BCD4', // Slightly darker turquoise for secondary hover effects
       accent: '#FF7043',         // Coral orange for accent elements
       muted: '#B2DFDB',          // Light muted sea green for less prominent elements
-      border: '#0097A7',         // Use the primary color for borders to maintain consistency
+      border: '#00796B',         // Use the primary color for borders to maintain consistency
     },
   },
     midday: {
