@@ -209,17 +209,17 @@ export const themes: Record<string, Theme> = {
     name: 'Light Ocean',
     colorScheme: 'light',
     colors: {
-      background: '#E0F7FA',     // Light, soft cyan for the background
-      foreground: '#004D40',     // Darker teal for better text contrast on the light background
-      card: '#B2EBF2',           // Light cyan card color
-      'card-hover': '#80DEEA',    // Slightly darker cyan for hover effects on cards
-      primary: '#00675B',        // Even darker teal for primary accents
-      'primary-hover': '#004D40', // Even darker teal for primary hover effects
-      secondary: '#26C6DA',      // Soft turquoise for secondary accents
-      'secondary-hover': '#00BCD4', // Slightly darker turquoise for secondary hover effects
-      accent: '#FF7043',         // Coral orange for accent elements
-      muted: '#B2DFDB',          // Light muted sea green for less prominent elements
-      border: '#00675B',         // Darker teal border to match primary color
+      background: '#E0F7FA',  // Soft ocean blue background
+      foreground: '#00796B',  // Deep teal for text
+      card: '#B2EBF2',        // Light cyan card color
+      'card-hover': '#80DEEA', // Slightly darker cyan on hover
+      primary: '#00ACC1',     // Bright teal primary accent
+      'primary-hover': '#0097A7', // Darker teal on hover
+      secondary: '#26C6DA',   // Soft turquoise for secondary accents
+      'secondary-hover': '#00BCD4', // Darker turquoise on hover
+      accent: '#FF7043',      // Coral orange for accents
+      muted: '#B2DFDB',       // Muted sea green
+      border: '#004D40',      // Dark teal border
     },
   },
     midday: {
