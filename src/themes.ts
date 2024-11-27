@@ -215,8 +215,8 @@ export const themes: Record<string, Theme> = {
       'card-hover': '#80DEEA', // Slightly darker cyan on hover
       primary: '#00ACC1',     // Bright teal primary accent
       'primary-hover': '#0097A7', // Darker teal on hover
-      secondary: '#26C6DA',   // Soft turquoise for secondary accents
-      'secondary-hover': '#00BCD4', // Darker turquoise on hover
+      secondary: '#0097A7',   // Darker teal for secondary accents
+      'secondary-hover': '#00796B', // Even darker teal for hover
       accent: '#FF7043',      // Coral orange for accents
       muted: '#B2DFDB',       // Muted sea green
       border: '#004D40',      // Dark teal border
